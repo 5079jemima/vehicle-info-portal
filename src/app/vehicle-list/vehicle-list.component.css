@@ -1,0 +1,41 @@
+::ng-deep .dx-item.dx-toolbar-item.dx-toolbar-label {
+  max-width: unset !important;
+}
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #337ab7;
+  padding: 1rem;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.data-grid-container {
+  height: calc(100vh - 60px); /* Adjust this value based on your navbar height */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 80%;
+  margin: 0;
+}
+dx-data-grid {
+  height: 100%;
+}
+
+.dx-data-grid {
+  overflow: scroll;
+}
+.div-height {
+  height:60%;
+}

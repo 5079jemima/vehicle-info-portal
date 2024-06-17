@@ -1,0 +1,45 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <h1>Vehicle Info System</h1>
+  </div>
+</nav>
+<div class="div-height">
+<dx-data-grid class="data-grid-container" height="480"
+  [dataSource]="vehicles">
+  <dxi-column dataField="make" ></dxi-column>
+  <dxi-column dataField="model" ></dxi-column>
+  <dxi-column dataField="launchYear" caption="Year" ></dxi-column>
+  <dxi-column dataField="vin" ></dxi-column>
+  <dxi-column type="buttons" caption="Action" [width]="110">
+    <dxi-button text="Edit"
+                [onClick]="editVehicle"
+    ></dxi-button>
+    <dxi-button text="Delete"
+                [onClick]="deleteVehicle"
+    ></dxi-button>
+  </dxi-column>
+  <dxo-header-filter [visible]="true"></dxo-header-filter>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+  <dxo-search-panel [visible]="true" [width]="240"></dxo-search-panel>
+  <dxo-scrolling [mode]="'infinite'"></dxo-scrolling>
+  <dxo-toolbar>
+    <dxi-item location="after"  name="searchPanel"></dxi-item>
+
+    <dxi-item location="after" [widget]="'dxButton'" [options]="addButtonOptions"></dxi-item>
+  </dxo-toolbar>
+  <dxo-summary>
+    <dxi-total-item
+      column="make"
+      summaryType="count">
+    </dxi-total-item>
+  </dxo-summary>
+</dx-data-grid>
+</div>
+<dx-popup height="300" width="400"
+          [visible]="showPopup"
+          [showTitle]="true"
+          [(title)]="popupTitle"
+          (onHiding)="showPopup=false"
+>
+  <app-vehicle-form [vehicle]="selectedVehicle" [type]="selectedOption" (refresh)="getVehicles()"></app-vehicle-form>
+</dx-popup>

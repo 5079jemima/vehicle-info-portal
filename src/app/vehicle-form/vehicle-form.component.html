@@ -1,0 +1,32 @@
+<dx-form [formData]="vehicle">
+  <dxi-item editorType="dxTextBox" dataField="make">
+    <dxi-validation-rule type="required" message="Make is required">
+    </dxi-validation-rule>
+  </dxi-item>
+  <dxi-item editorType="dxTextBox" dataField="model">
+    <dxi-validation-rule type="required" message="Model is required">
+    </dxi-validation-rule>
+  </dxi-item>
+  <dxi-item editorType="dxNumberBox" dataField="launchYear"
+            [editorOptions]="{
+    min: 1900,
+    max: 2100
+  }">
+    <dxi-validation-rule type="required" message="Year is required">
+    </dxi-validation-rule>
+  </dxi-item>
+  <dxi-item editorType="dxTextBox" dataField="vin" [editorOptions]="{maxLength:17}">
+    <dxi-validation-rule type="required" message="Vin is required">
+    </dxi-validation-rule>
+  </dxi-item>
+  <dxi-item
+    name="Save"
+    itemType="button"
+    [buttonOptions]="{ text: 'Save',
+    type: 'default',
+    width: '120px',
+    useSubmitBehavior:true,
+    onClick: saveData}"
+  >
+  </dxi-item>
+</dx-form>
